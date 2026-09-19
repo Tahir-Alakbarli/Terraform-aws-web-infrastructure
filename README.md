@@ -1,4 +1,5 @@
 # Terraform AWS Web Infrastructure
+Terraform project that deploys a highly available AWS website using VPC, EC2, an Application Load Balancer, Auto Scaling, IAM and CloudWatch.
 
 ## Project Overview
 
