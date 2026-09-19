@@ -1,0 +1,18 @@
+#!/bin/bash
+set -euo pipefail
+
+dnf install -y nginx 
+
+install -d -m 0755 /usr/share/nginx/html
+
+printf '%s' '${html_base64}' | base64 --decode > /usr/share/nginx/html/index.html
+printf '%s' '${css_base64}' | base64 --decode > /usr/share/nginx/html/style.css
+
+curl --retry 5 --retry-delay 3 --fail --silent --show-error --location '${image_url}' --output /usr/share/nginx/html/chickens.jpg
+
+chmod 0644 /usr/share/nginx/html/index.html
+chmod 0644 /usr/share/nginx/html/style.css
+chmod 0644 /usr/share/nginx/html/chickens.jpg
+
+systemctl enable nginx
+systemctl restart nginx

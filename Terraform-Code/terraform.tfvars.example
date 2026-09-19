@@ -1,0 +1,31 @@
+aws_region          = "eu-central-1"
+project_name        = "Terraform AWS Web Infrastructure"
+page_title          = "The World of Chickens"
+environment         = "portfolio"
+owner               = "Tahir-Alakbarli"
+vpc_cidr            = "10.0.0.0/16"
+public_subnet_cidrs = ["10.0.1.0/24", "10.0.2.0/24"]
+instance_type       = "t3.micro"
+root_volume_size    = 8
+minimum_capacity    = 2
+desired_capacity    = 2
+maximum_capacity    = 4
+
+names = {
+  vpc                     = "terraform-webpage"
+  subnet_1                = "public-subnet-1"
+  subnet_2                = "public-subnet-2"
+  internet_gateway        = "terraform-igw"
+  route_table             = "route-table"
+  alb                     = "terraform-alb"
+  alb_security_group      = "ALB-security"
+  ec2_security_group      = "Terraform-EC2-security"
+  target_group            = "webpage-ec2-target"
+  launch_template         = "terraform-launch"
+  autoscaling_group       = "terraform-asg"
+  ec2                     = "terraform-webpage"
+  iam_role                = "Terraform_role"
+  instance_profile        = "Terraform-EC2"
+  unhealthy_targets_alarm = "Unhealthy-targets"
+  high_cpu_alarm          = "High-CPU"
+}
