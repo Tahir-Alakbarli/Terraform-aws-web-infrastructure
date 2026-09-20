@@ -1,7 +1,7 @@
 module "network" {
   source = "./Modules/Network"
 
-  vpc_cidr              = var.vpc_cid
+  vpc_cidr              = var.vpc_cidr
   public_subnet_cidrs   = var.public_subnet_cidrs
   vpc_name              = var.names.vpc
   subnet_names          = [var.names.subnet_1, var.names.subnet_2]
